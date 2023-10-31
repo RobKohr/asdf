@@ -1,0 +1,29 @@
+#header {
+  position: fixed;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--headerHeight);
+  z-index: 10;
+  background: var(--headerBg);
+  box-shadow: var(--shadow);
+  & > div {
+    height: var(--headerHeight);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  .header-sub {
+    display: flex;
+  }
+  .below {
+    position: absolute;
+    height: var(--belowHeaderHeight);
+    box-sizing: border-box;
+    padding: 1.5rem;
+    top: 60px;
+    left: 0px;
+    right: 0px;
+    background: red;
+  }
+}
