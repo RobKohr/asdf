@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { redirect } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 import { registrationValidation } from "../../../server/validation/auth.validation";
 import { ServerErrors, handleSubmission } from "../../components/ApiUtils/ApiUtils";
 import Form from "../../components/Forms/Form/Form";
@@ -8,6 +8,7 @@ import InputText from "../../components/Forms/InputText/InputText";
 import { closeMenuModal } from "../../components/MenuModal/MenuModalState";
 
 export default function Register() {
+  const navigate = useNavigation();
   const [serverErrors, setServerErrors] = useState<string[] | undefined>();
   const apiPath = "auth/register";
   const initialData = {
@@ -26,7 +27,7 @@ export default function Register() {
     if (success) {
       const loginMessage = "Registration successful. Please login.";
       closeMenuModal();
-      redirect("/auth/login?notification=" + encodeURIComponent(loginMessage));
+      navigate("/auth/login?notification=" + encodeURIComponent(loginMessage));
     }
   }
   const id = "register-form";
